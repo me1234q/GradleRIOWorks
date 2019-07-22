@@ -1,7 +1,5 @@
 package frc.team972.robot.subsystems;
 
-import frc.team972.robot.subsystems.*;
-
 public abstract class SubsystemManager {
 
     private Subsystem[] subsystems;
@@ -14,31 +12,49 @@ public abstract class SubsystemManager {
         this.subsystems = subsystems;
     }
 	
-	public void init() {
+	public void robotInitAll() {
         for (Subsystem subsystem : subsystems) {
-            subsystem.init();
+            subsystem.robotInit();
+        }
+    }
+	
+	public void autonomousInitAll() {
+        for (Subsystem subsystem : subsystems) {
+            subsystem.autonomousInit();
         }
     }
 
-    public void periodic() {
+    public void autonomousPeriodicAll() {
         for (Subsystem subsystem : subsystems) {
-            subsystem.periodic();
+            subsystem.autonomusPeriodic();
+        }
+    }
+	
+	public void teleopInitAll() {
+        for (Subsystem subsystem : subsystems) {
+            subsystem.teleopInit();
+        }
+    }
+	
+	public void teleopPeriodicAll() {
+        for (Subsystem subsystem : subsystems) {
+            subsystem.teleopPeriodic();
         }
     }
 
-    public void outputTelemetry() {
+    public void outputTelemetryAll() {
         for (Subsystem subsystem : subsystems) {
             subsystem.outputTelemetry();
         }
     }
 
-    public void stop() {
+    public void stopAll() {
         for (Subsystem subsystem : subsystems) {
             subsystem.stop();
         }
     }
 
-    public void zeroSensors() {
+    public void zeroSensorsAll() {
         for (Subsystem subsystem : subsystems) {
             subsystem.seroSensors();
         }

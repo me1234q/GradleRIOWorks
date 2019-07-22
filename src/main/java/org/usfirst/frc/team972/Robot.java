@@ -4,8 +4,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import frc.team972.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
+	
+	public final ExampleSubsystem exampleSubsystem = new ExampleSubsystem(this);
 
-    private Subsystem[] subsystems = {new ExampleSubsystem(this)};
+    private Subsystem[] subsystems = new Subsystem[] {exampleSubsystem};
     private SubsystemManager subsystemManager = new SubsystemManager(subsystems);
 	
 	private Pose pose = new Pose();
@@ -13,8 +15,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotInit() {
-		subsystemManager.zeroSensors();
-		subsystemManager.init();
+		subsystemManager.zeroSensorsAll();
+		subsystemManager.robotInitAll();
     }
 
     @Override
@@ -24,21 +26,21 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
-
+		subsystemManager.autonomousInitAll();
     }
 
     public void autonomousPeriodic() {
-
+		subsystemManager.autonomousPeriodicAll();
     }
 
     @Override
     public void teleopInit() {
-
+		subsystemManager.teleopInitAll();
     }
 
     @Override
     public void teleopPeriodic() {
-        subsystemManager.periodic();
+        subsystemManager.teleopPeriodicAll();
     }
 
     @Override
@@ -48,7 +50,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void disabledInit() {
-
+		subsystemManager.stopAll();
     }
 	
 	public Pose getPose() {
