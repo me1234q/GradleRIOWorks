@@ -7,13 +7,14 @@ public class Robot extends TimedRobot {
 
     private Subsystem[] subsystems = {ExampleSubsystem.getInstance()};
     private SubsystemManager subsystemManager = new SubsystemManager(subsystems);
-
-    private ControllerSubsystem controllerSubsystem = ControllerSubsystem.getInstance();
+	
+	public Pose pose = new Pose();
 
 
     @Override
     public void robotInit() {
-
+		subsystemManager.zeroSensors();
+		subsystemManager.init();
     }
 
     @Override
@@ -37,7 +38,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-         
+        subsystemManager.periodic();
     }
 
     @Override

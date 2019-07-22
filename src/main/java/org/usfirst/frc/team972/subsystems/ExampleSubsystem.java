@@ -6,12 +6,19 @@ public abstract class ExampleSubsystem extends Subsystem {
         super();
     }
 
+	public void init() {
+    }
+
     public void periodic() {
     }
 
-    public abstract void outputTelemetry();
+    public void outputTelemetry() {
+		
+	}
 
-    public abstract void stop();
+    public void stop() {
+		
+	}
 
     public void zeroSensors() {
     }

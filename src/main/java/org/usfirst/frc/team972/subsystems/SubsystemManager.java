@@ -13,6 +13,12 @@ public abstract class SubsystemManager {
     public SubsystemManager(Subsystem[] subsystems) {
         this.subsystems = subsystems;
     }
+	
+	public void init() {
+        for (Subsystem subsystem : subsystems) {
+            subsystem.init();
+        }
+    }
 
     public void periodic() {
         for (Subsystem subsystem : subsystems) {

@@ -4,15 +4,15 @@ public abstract class Subsystem {
 
     private static Subsystem instance;
 
-    public void periodic() {
-    }
+	public abstract void init();
+
+    public abstract void periodic();
 
     public abstract void outputTelemetry();
 
     public abstract void stop();
 
-    public void zeroSensors() {
-    }
+    public abstract void zeroSensors();
 
     public void getInstance() {
         return instance;
