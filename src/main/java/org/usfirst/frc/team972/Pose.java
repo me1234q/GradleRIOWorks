@@ -2,9 +2,9 @@ package frc.team972.robot;
 
 
 public class Pose {
-	public double x;
-	public double y;
-	public double heading;
+	private double x;
+	private double y;
+	private double heading;
 	
 	public Pose() {
 		this(0, 0, 0);
@@ -14,5 +14,14 @@ public class Pose {
 		this.x = x;
 		this.y = y;
 		this.heading = heading;
+	}
+	
+	public translate(double x, double y) {
+		this.x += x;
+		this.y += y;
+	}
+	
+	public rotate(double angle) {
+		this.heading += angle
 	}
 }

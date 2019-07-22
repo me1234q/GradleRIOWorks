@@ -1,8 +1,11 @@
 package frc.team972.robot.subsystems;
 
 public abstract class Subsystem {
-
-    private static Subsystem instance;
+	private final Robot robot;
+	
+	public Subsystem(Robot robot) {
+		this.robot = robot;
+	}
 
 	public abstract void init();
 
@@ -13,8 +16,4 @@ public abstract class Subsystem {
     public abstract void stop();
 
     public abstract void zeroSensors();
-
-    public void getInstance() {
-        return instance;
-    }
 }

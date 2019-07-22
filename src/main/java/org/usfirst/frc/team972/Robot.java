@@ -5,10 +5,10 @@ import frc.team972.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
 
-    private Subsystem[] subsystems = {ExampleSubsystem.getInstance()};
+    private Subsystem[] subsystems = {new ExampleSubsystem(this)};
     private SubsystemManager subsystemManager = new SubsystemManager(subsystems);
 	
-	public Pose pose = new Pose();
+	private Pose pose = new Pose();
 
 
     @Override
@@ -50,4 +50,8 @@ public class Robot extends TimedRobot {
     public void disabledInit() {
 
     }
+	
+	public Pose getPose() {
+		return pose;
+	}
 }
