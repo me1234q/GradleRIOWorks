@@ -5,9 +5,9 @@ import frc.team972.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
 	
-  public final ExampleSubsystem exampleSubsystem = new ExampleSubsystem(this);
+  public final DriveSubsystem drive = new DriveSubsystem(this);
 
-  private Subsystem[] subsystems = new Subsystem[] {exampleSubsystem};
+  private Subsystem[] subsystems = new Subsystem[] {drive};
   private SubsystemManager subsystemManager = new SubsystemManager(subsystems);
 
   private Pose pose = new Pose();
@@ -51,6 +51,10 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledInit() {
       subsystemManager.stopAll();
+    }
+
+    @Override
+    public void disabledPeriodic() {
     }
 
   public Pose getPose() {
