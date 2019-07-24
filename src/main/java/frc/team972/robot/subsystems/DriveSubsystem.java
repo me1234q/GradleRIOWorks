@@ -10,8 +10,8 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.*;
 
 public class DriveSubsystem extends Subsystem {
 
-    Compressor c = new Compressor(40);
-    DoubleSolenoid s = new DoubleSolenoid(0,1);
+    Compressor c = new Compressor(0);
+    DoubleSolenoid s = new DoubleSolenoid(6, 7);
     Joystick j = new Joystick(0);
 
 
@@ -35,12 +35,12 @@ public class DriveSubsystem extends Subsystem {
     }
 
     public void teleopPeriodic() {
-        if (j.getRawButton(0)) {
-            s.set(kForward);
-            System.out.println("F");
+        if (j.getRawButton(1) && !j.getRawButton(2)) {
+            s.set(DoubleSolenoid.Value.kForward); 
+        } else if (j.getRawButton(2) && !j.getRawButton(1)) {
+            s.set(DoubleSolenoid.Value.kReverse); 
         } else {
-            s.set(kReverse);
-            System.out.println("R");
+            s.set(DoubleSolenoid.Value.kOff); 
         }
     }
 
@@ -48,7 +48,7 @@ public class DriveSubsystem extends Subsystem {
     }
 
     public void stop() {
-    }
+    }   
 
     public void zeroSensors() {
     }
