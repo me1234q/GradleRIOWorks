@@ -2,6 +2,7 @@ package frc.team972.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import frc.team972.robot.subsystems.*;
+import frc.team972.robot.statemachines.*;
 
 public class Robot extends TimedRobot {
 	
@@ -9,6 +10,8 @@ public class Robot extends TimedRobot {
 
   private Subsystem[] subsystems = new Subsystem[] {exampleSubsystem};
   private SubsystemManager subsystemManager = new SubsystemManager(subsystems);
+
+  public ExampleState state = ExampleState.OFF;
 
   private Pose pose = new Pose();
 

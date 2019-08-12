@@ -1,18 +1,15 @@
 package frc.team972.robot.statemachines;
 
 public enum ExampleState {
-    IDLE,
-    READY,
-    DOING,
-    FINISHED;
+    ON, OFF;
 
     public ExampleState next(ExampleState state) {
         switch (state) {
-            case IDLE:
-                return READY;
+            case ON:
+                return OFF;
                 break;
-            case IDLE:
-                return READY;
+            case OFF:
+                return ON   ;
                 break;
                 
         }
